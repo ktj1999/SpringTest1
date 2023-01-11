@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="main-head"> <!-- th:fragment: fragment 이름 지정 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <th:block layout:fragment="title"></th:block>
+
+    <link rel="stylesheet" th:href="@{/css/default.css}" /> <!-- th:href :콘텍스트 경로, 프로퍼티에서 경로 변경 가능 -->
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/content.css}" />
+    <link rel="stylesheet" th:href="@{/css/button.css}" />
+
+    <th:block layout:fragment="add-css"></th:block> <!-- th:block : layout:fragment에 페이지의 내용을 채움, 동적처리 -->
+</head>
+</html>
