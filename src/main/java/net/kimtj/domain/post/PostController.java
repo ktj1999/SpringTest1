@@ -1,11 +1,15 @@
 package net.kimtj.domain.post;
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller 
 @RequiredArgsConstructor 
@@ -39,6 +43,16 @@ public class PostController {
     public String savePost(final PostRequest params) {
         postService.savePost(params);
         return "redirect:/post/list.do";
+    }
+    
+    // 게시글 리스트 페이지
+    // posts(List)를 뷰에 전달
+    // templates/post/list.html을 출력
+    @GetMapping("/post/list.do")
+    public String openPostList(Model model) {
+        List<PostResponse> posts = postService.findAllPost();
+        model.addAttribute("posts", posts);
+        return "post/list";
     }
     
 
